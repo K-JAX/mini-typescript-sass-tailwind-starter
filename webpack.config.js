@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require("webpack");
 const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
 
 module.exports = {
@@ -31,11 +32,19 @@ module.exports = {
 		extensions: [".tsx", ".ts", ".js"],
 	},
 	plugins: [
-		new BrowserSyncPlugin({
-			host: "localhost",
-			port: 3000,
-			proxy: "http://localhost:3100/",
-		}),
+		new BrowserSyncPlugin(
+			{
+				host: "localhost",
+				port: 3000,
+				proxy: "http://localhost:3100/", // REPLACE with whatever your loca
+				files: ["**/**.css"],
+				open: false,
+			},
+			{
+				reload: false,
+			}
+		),
+		new webpack.HotModuleReplacementPlugin(),
 	],
 	output: {
 		filename: "scripts/script.js",

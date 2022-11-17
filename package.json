@@ -4,7 +4,7 @@
   "description": "A minimal Webpack 5, Tailwind Sass, and TypeScript Web Apps Starter Template",
   "private": true,
   "scripts": {
-    "start": "webpack serve --mode=development --open",
+    "start": "webpack --watch",
     "build": "webpack --config webpack-prod.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
